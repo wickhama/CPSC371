@@ -1,0 +1,45 @@
+Assignment 1
+CPSC 371
+Author: Ayla Wickham(230111051)
+
+To run program:
+python tree.py <file> <search-method>
+
+<file> : is the path to the file containing the start states
+       There must only be one start state on each line and and each start state must not contain any spaces or commas
+       Ex.
+        780123456
+        851230467
+        805321647
+
+<search-method>:
+       BreathFirst :: Traverses the tree in BreathFirst
+
+       Manhattan :: Uses BestFirst with the Manhattan heuristic to traverse the tree
+
+       Tiles :: Uses BestFirst with the Tiles-Out-Of-Place heuristic to traverse the tree
+
+       AStar :: Uses Astar with the Manhattan heuristic to traverse the tree
+
+
+Example of running program:
+
+python tree.py examples.txt Astar
+
+Results will be written to a file in Node form.
+Ex: Node('/root/left/up/right/right/up/left/left/down/right/up/left/down/down/right/up/left/up/right/down/down/right/up/left/down/left/up/right/right/down/left/up/left/down/right/right', data=(1, 2, 3, 4, 5, 6, 7, 8, 0), depth=35)
+
+Sequence of moves is the first part of the Node and the length is the depth
+
+Most difficult initial state was 073281456 as it was insolvable. *Please note that it has been removed from the examples.txt
+
+Most difficult initial solvable states were:
+BreathFirst:(6, 4, 7, 8, 5, 0, 3, 2, 1): Node('/root/up/left/down/left/down/right/up/right/down/left/up/up/left/down/down/right/up/right/up/left/left/down/right/right/up/left/left/down/right/down/right', data=(1, 2, 3, 4, 5, 6, 7, 8, 0), depth=31)
+
+Manhattan:(8, 3, 7, 2, 1, 5, 4, 0, 6): Node('/root/up/right/up/left/left/down/down/right/up/up/left/down/down/right/up/right/down/left/up/left/up/right/down/left/down/right/right/up/left/left/up/right/down/right/down/left/up/left/down/right/right/up/left/up/right/down/down/left/left/up/right/down/right/up/up/left/down/right/up/left/down/left/up/right/right/down/down/left/up/up/left/down/right/down/right', data=(1, 2, 3, 4, 5, 6, 7, 8, 0), depth=75)
+
+Tiles-Out-Of-Place:(0, 6, 8, 3, 2, 5, 7, 1, 4): Node('/root/right/down/down/left/up/right/right/up/left/left/down/down/right/right/up/up/left/down/right/up/left/down/left/up/right/down/left/up/right/down/down/right/up/left/up/right/down/down/left/up/up/left/down/right/down/right/up/left/left/up/right/right/down/down/left/up/left/up/right/down/left/down/right/right/up/left/left/up/right/down/right/down/left/up/up/left/down/down/right/right/up/left/left/up/right/right/down/down/left/left/up/up/right/down/down/right/up/left/up/right/down/left/up/right/down/down/left/left/up/right/down/right/up/left/up/right/down/down/left/up/up/right/down/down/left/left/up/right/right/up/left/down/down/right/up/left/left/up/right/right/down/down/left/left/up/up/right/right/down/down/left/left/up/up/right/right/down/down/left/left/up/up/right/down/left/down/right/right/up/left/up/right/down/down/left/left/up/up/right/right/down/left/left/down/right/right/up/left/down/right/up/left/down/left/up/right/right/down/left/left/up/right/down/left/up/right/down/right/up/left/up/right/down/left/up/right/down/down/left/up/up/left/down/down/right/right/up/up/left/left/down/right/up/right/down/down/left/up/left/down/right/right/up/up/left/down/right/down/left/left/up/right/down/left/up/right/up/left/down/down/right/right/up/left/left/up/right/down/right/down', data=(1, 2, 3, 4, 5, 6, 7, 8, 0), depth=270)
+
+AStar:(6, 4, 7, 8, 5, 0, 3, 2, 1): Node('/root/up/left/down/right/down/left/left/up/right/up/right/down/down/left/left/up/up/right/right/down/down/left/up/left/up/right/right/down/left/down/right', data=(1, 2, 3, 4, 5, 6, 7, 8, 0), depth=31)
+
+*Please note that BestFirst Search does not find the shortest path as the list gets sorted by a heuristic. If the heuristic is off then it will find another path to the goal state that may be longer than the shortest path.
