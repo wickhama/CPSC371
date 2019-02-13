@@ -5,6 +5,7 @@
 # 230111051
 
 import copy
+import math
 
 table = {
     1: [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -20,37 +21,116 @@ table = {
 
 class Forward:
 
-    def __init__(self):
+    def __init__(self, filename):
         self.grid = [copy.deepcopy(table) for x in range(9)]
+        self.changes = []
+        self.setup(filename)
+        self.start()
+
+    def setup(self, filename):
+        fn = open(filename, 'r')
+
+        for lidx, line in enumerate(fn):
+            for vidx, value in enumerate(line):
+                if value == '\n' or int(value) == 0: continue
+                data = (int(value), (3*math.floor(lidx/3) + math.floor(vidx/3))+1, (3*(lidx%3) + (vidx%3))+1)
+                self.insert(data)
+                # self.grid[int(value)-1][(3*math.floor(lidx/3) + math.floor(vidx/3))+1] = (3*(lidx%3) + (vidx%3))+1
+
+    def start(self):
+        changed = True
+        #find number with least spots
+        while(changed):
+            changed = False
+            for vidx, value in enumerate(self.grid):
+                for table in value:
+                    if isinstance(value[table], list):
+                        if len(value[table]) == 1:
+                            self.insert((vidx+1, table, value[table][0]))
+                            changed = True
+
+    def insert(self, data): #tNum, iNum, element):
+        num, tNum, iNum = data
+        change = (num, tNum, iNum, self.grid[num-1][tNum])
+        self.changes.insert(0, change)
+        tDict = self.grid[num-1]
+        tDict[tNum] = iNum
+        self.removeFromTable(data)
 
 
-    def insert(self, position, element): #tNum, iNum, element):
-        tNum, iNum = position
-        tDict = self.grid[tNum-1]
-        tDict[iNum] = element
+    def removeFromTable(self, data): #element, position):
+        num, tNum, iNum = data
+        eDic = self.grid[num-1]
+        eDic[tNum] = iNum
+        vStart = tNum % 3
+        vList = [x for x in range(iNum%3, 10, 3)]
 
 
+        #vertical removal
+        for x in range(vStart, 10, 3):
+            if x < 1 or not isinstance(eDic[x], list): continue
+            eDic[x] = [y for y in eDic[x] if y not in vList]
 
-    # def remove(self, position, element):
-    #     #Removes element from rest of table
-    #     for x, y in tDict.items():
-    #         if isinstance(y, list) and element in y: y.remove(element)
+        #Horizontal removal
+        htStart = tNum-((tNum-1))%3
+        hiStart = iNum-((iNum-1))%3
+        hList = [x for x in range(hiStart, hiStart+3)]
+        for x in range(htStart, htStart+3):
+            if not isinstance(eDic[x], list): continue
+            eDic[x] = [y for y in eDic[x] if y not in hList]
 
-        #Removes element from rest of corresponding grid
+        #remove index from numbers
+        for idx, dic in enumerate(self.grid):
+            if idx == num-1 or not isinstance(dic[tNum], list): continue
+            if iNum in dic[tNum]: dic[tNum].remove(iNum)
 
-    def removeFromTable(self, position, element, vertical) :
-        tNum, iNum = position
-        tStart = (tNum + 1) % 3
-        iStart = (iNum+1) % 3
-        if vertical:
-            for x in range(tStart-1, 9, 3):
-                if x < 0 : continue
-                grid[x]
-        tDict = grid[tNum]
-        for x in iNum:
-            if isinstance(tDict[x], list) and element in tDict[x]: tDict[x].remove(element)
 
-forward = Forward()
-position = (5, 5)
-forward.insert(position, 5)
-print(forward.grid[4])
+    def undoRemove(self):
+        num, tNum, iNum, lst = self.changes.pop(0)
+        eDic = self.grid[num-1]
+        eDic[tNum] = lst
+        vStart = tNum% 3
+        vList = [x for x in range(iNum%3, 10, 3)]
+
+        #Vertical undo
+        for x in range(vStart, 10, 3):
+            if not isinstance(eDic[x], list): eDic[x] = [eDix[x]] + vList
+            eDic[x] = [y for y in range(1, 10) if y in eDic[x] or vList]
+
+        #Horizontal undo
+        htStart = tNum-((tNum-1))%3
+        hiStart = iNum-((iNum-1))%3
+        hList = [x for x in range(hiStart, hiStart+3)]
+        for x in range(htStart, htStart+3):
+            if not isinstance(eDic[x], list): eDix[x] = [eDic[x]] + hList
+            eDic[x] = [y for y in range(1, 10) if y in eDic[x] or hList]
+
+        #Index from numbers undo
+        for idx, dic in enumerate(self.grid):
+            if idx == num-1: continue
+            if not isinstance(dic[tNum], list): dic[tNum] = [dic[tNum], iNum]
+            dic[tNum].append(iNum)
+
+    def printDic(self):
+        for idx, dic in enumerate(self.grid):
+            print(idx, ": ")
+            print(dic)
+
+    def printOutput(self):
+        for idx, dic in enumerate(self.grid):
+            for table in dic:
+                
+
+
+# forward = Forward()
+# data = (2, 8, 9)
+# forward.insert(data)
+# forward.printDic()
+# print("UNDO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+# forward.undoRemove()
+# forward.printDic()
+
+# lst = [1,2 ,3 ,4]
+# lst2 = [5, 6, 7]
+# lst3 = lst.append(lst2)
+# print(lst)

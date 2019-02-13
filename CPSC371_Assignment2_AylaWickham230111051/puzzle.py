@@ -5,17 +5,15 @@
 # 230111051
 
 import sys
+import forward
 
-thisdict = {
-    1 : [1, 2, 3, 4, 5]
-}
-print(thisdict)
-thisdict[1] = 4
-print(thisdict)
-# args = sys.argv
-# filename = args[1]
+args = sys.argv
+filename = args[1]
 
 #get first puzzle
+
+frwrd = forward.Forward(filename)
+frwrd.printDic()
 # with open(filename) as file:
     # for line in file:
         # print(line)
