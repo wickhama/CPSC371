@@ -14,6 +14,5 @@ filename = args[1]
 
 frwrd = forward.Forward(filename)
 frwrd.printDic()
-# with open(filename) as file:
-    # for line in file:
-        # print(line)
+print(frwrd.tAffected)
+# frwrd.printOutput()
