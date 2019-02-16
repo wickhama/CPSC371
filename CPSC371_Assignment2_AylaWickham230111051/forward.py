@@ -184,6 +184,7 @@ class Forward:
         vList = [x for x in range(iNum%3, 10, 3)]
 
         #Vertical undo
+        #TODO Check for conflicting numbers!
         for x in range(vStart, 10, 3):
             if x < 1: continue
             if not isinstance(eDic[x], list): eDic[x] = [eDic[x]] + vList
