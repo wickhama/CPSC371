@@ -1,0 +1,18 @@
+Assignment 2
+CPSC 371
+Ayla Wickham
+230111051
+
+To Run:
+
+python puzzle.py <Method> <File>
+
+<Method> :: Forward
+              Uses Forward Checking algorithm to find solution for sudoku puzzle
+         :: Backtracking
+              Uses Backtracking algorithm to find solution for sudoku puzzle
+
+<File> :: path to file
+               There are example files in data/
+
+Example: python puzzle.py Forward data/example.txt

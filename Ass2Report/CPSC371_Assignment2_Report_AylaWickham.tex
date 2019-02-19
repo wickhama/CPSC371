@@ -1,0 +1,500 @@
+% Assignment 2 - Report
+% CPSC 371
+% Ayla Wickham
+% 230111051
+
+\documentclass{article}
+
+\usepackage{txfonts}
+\usepackage{booktabs}
+
+\begin{document}
+
+\title{Assignment 2 Report}
+\author{Ayla Wickham\\
+  CPSC371}
+\date{\today}
+
+\maketitle
+\newpage
+
+\section*{BackTracking \\
+\small{Complexity :: O(n$^{n^2}$)}}
+\small\emph{\textbf{Anonymous::}}\\ \textbf{Nodes Visited:} 4,537 \textbf{Time:} 0.248 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  1 &   &   &   & 3 & 6 &   &   &   &               & 1 & 7 & 4 & 5 & 3 & 6 & 2 & 9 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+    &   & 5 & 4 &   & 2 & 7 &   & 3 &               & 8 & 6 & 5 & 4 & 9 & 2 & 7 & 1 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+    & 2 &   &   & 1 & 7 &   &   &   &               & 9 & 2 & 3 & 8 & 1 & 7 & 4 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  7 &   & 2 &   &   &   & 3 & 8 &   &               & 7 & 4 & 2 & 9 & 6 & 1 & 3 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+    &   &   &   &   &   &   &   &   & $\rightarrow$ & 6 & 3 & 9 & 7 & 5 & 8 & 1 & 4 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+    & 1 & 8 &   &   &   & 6 &   & 9 &               & 5 & 1 & 8 & 2 & 4 & 3 & 6 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+    &   &   & 6 & 8 &   &   & 2 &   &               & 3 & 5 & 1 & 6 & 8 & 4 & 9 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  4 &   & 7 & 3 &   & 5 & 8 &   &   &               & 4 & 9 & 7 & 3 & 2 & 5 & 8 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+    &   &   & 1 & 7 &   &   &   & 4 &               & 2 & 8 & 6 & 1 & 7 & 9 & 5 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newline
+\newline
+\small\emph{\textbf{Omega::}}\\ \textbf{Nodes Visited:} 48,195 \textbf{Time:} 2.674 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+    &   & 4 &   & 1 &   & 5 &   &   &               & 6 & 7 & 4 & 3 & 1 & 8 & 5 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+    & 2 & 8 &   &   & 4 &   &   &   &               & 9 & 2 & 8 & 7 & 5 & 4 & 6 & 1 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+    & 1 &   &   & 2 &   &   &   & 7 &               & 5 & 1 & 3 & 9 & 2 & 6 & 4 & 8 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+    &   &   &   &   &   & 2 &   &   &               & 1 & 3 & 6 & 8 & 4 & 7 & 2 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  7 & 4 &   &   &   &   &   & 3 & 6 & $\rightarrow$ & 7 & 4 & 5 & 1 & 9 & 2 & 8 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+    &   & 2 &   &   &   &   &   &   &               & 8 & 9 & 2 & 6 & 3 & 5 & 7 & 4 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  4 & 8 &   &   & 7 & 3 &   & 6 &   &               & 4 & 8 & 1 & 2 & 7 & 3 & 9 & 6 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+    &   &   & 4 &   &   & 1 & 2 &   &               & 3 & 5 & 7 & 4 & 6 & 9 & 1 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+    &   & 9 &   & 8 &   & 3 &   &   &               & 2 & 6 & 9 & 5 & 8 & 1 & 3 & 7 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\newpage
+\small\emph{\textbf{Tim::}}\\ \textbf{Nodes Visited:} 1,001 \textbf{Time:} 0.053 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   &   &   &   & 8 & 2 &   &   & 1 &               & 7 & 9 & 5 & 4 & 8 & 2 & 3 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+ 3 &   & 6 &   &   &   &   & 5 & 4 &               & 3 & 8 & 6 & 9 & 7 & 1 & 2 & 5 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+   & 1 &   &   & 6 &   & 8 &   &   &               & 4 & 1 & 2 & 3 & 6 & 5 & 8 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ 2 &   &   & 8 &   &   & 4 &   & 6 &               & 2 & 5 & 7 & 8 & 1 & 9 & 4 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+   &   &   & 7 & 5 & 6 &   &   &   & $\rightarrow$ & 8 & 3 & 4 & 7 & 5 & 6 & 9 & 1 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+ 1 &   & 9 &   &   & 3 &   &   & 5 &               & 1 & 6 & 9 & 2 & 4 & 3 & 7 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   &   & 3 &   & 2 &   &   & 9 &   &               & 5 & 4 & 3 & 1 & 2 & 8 & 6 & 9 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+   & 7 &   &   &   &   & 5 &   & 8 &               & 9 & 7 & 1 & 6 & 3 & 4 & 5 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+ 6 &   &   & 5 & 9 &   &   &   &   &               & 6 & 2 & 8 & 5 & 9 & 7 & 1 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\newline
+\newline
+\small\emph{\textbf{Colton::}}\\ \textbf{Nodes Visited:} 221 \textbf{Time:} 0.023 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   & 2 & 6 &   & 5 &   & 7 &   &   &               & 8 & 2 & 6 & 9 & 5 & 3 & 7 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+   &   & 7 & 4 &   & 6 &   &   & 5 &               & 3 & 1 & 7 & 4 & 8 & 6 & 9 & 2 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+ 9 &   &   & 2 & 1 &   &   & 6 &   &               & 9 & 4 & 5 & 2 & 1 & 7 & 3 & 6 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ 7 &   &   &   &   &   &   & 9 & 1 &               & 7 & 6 & 3 & 8 & 2 & 4 & 5 & 9 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+   &   &   & 1 & 7 & 5 &   &   &   & $\rightarrow$ & 2 & 9 & 4 & 1 & 7 & 5 & 8 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+ 5 & 8 &   &   &   &   &   &   & 2 &               & 5 & 8 & 1 & 6 & 3 & 9 & 4 & 7 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   & 5 &   &   & 4 & 2 &   &   & 3 &               & 1 & 5 & 9 & 7 & 4 & 2 & 6 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+ 4 &   &   & 3 &   & 8 & 1 &   &   &               & 4 & 7 & 2 & 3 & 6 & 8 & 1 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+   &   & 8 &   & 9 &   & 2 & 4 &   &               & 6 & 3 & 8 & 5 & 9 & 1 & 2 & 4 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newpage
+\small\emph{\textbf{Ayla::}}\\ \textbf{Nodes Visited:} 6588 \textbf{Time:} 0.347 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   &   &   &   &   &   &   &   &   &               & 2 & 7 & 1 & 9 & 5 & 4 & 6 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+   & 9 & 3 & 6 & 2 & 8 & 1 & 4 &   &               & 5 & 9 & 3 & 6 & 2 & 8 & 1 & 4 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+   & 6 &   &   &   &   &   & 5 &   &               & 4 & 6 & 8 & 1 & 3 & 7 & 2 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   & 3 &   &   & 1 &   &   & 9 &   &               & 7 & 3 & 6 & 4 & 1 & 5 & 8 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+   & 5 &   & 8 &   & 2 &   & 7 &   & $\rightarrow$ & 1 & 5 & 9 & 8 & 6 & 2 & 3 & 7 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+   & 4 &   &   & 7 &   &   & 6 &   &               & 8 & 4 & 2 & 3 & 7 & 9 & 5 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   & 8 &   &   &   &   &   & 3 &   &               & 9 & 8 & 5 & 2 & 4 & 1 & 7 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+   & 1 & 7 & 5 & 9 & 3 & 4 & 2 &   &               & 6 & 1 & 7 & 5 & 9 & 3 & 4 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+   &   &   &   &   &   &   &   &   &               & 3 & 2 & 4 & 7 & 8 & 6 & 9 & 1 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\\
+
+\small\emph{\textbf{Reece::}}\\ \textbf{Nodes Visited:} 313 \textbf{Time:} 0.015 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   & 2 &   &   & 4 &   &   &   & 1 &               & 6 & 2 & 7 & 3 & 4 & 5 & 9 & 8 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+   &   & 8 & 1 &   &   &   &   &   &               & 4 & 9 & 8 & 1 & 2 & 6 & 3 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+   & 3 & 5 &   &   & 9 &   &   & 2 &               & 1 & 3 & 5 & 7 & 8 & 9 & 4 & 6 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+   &   & 3 &   &   &   &   & 1 &   &               & 7 & 8 & 3 & 6 & 9 & 2 & 5 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+   & 1 & 6 & 4 & 7 & 3 & 2 & 9 &   & $\rightarrow$ & 5 & 1 & 6 & 4 & 7 & 3 & 2 & 9 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+   & 4 &   &   &   &   & 7 &   &   &               & 2 & 4 & 9 & 8 & 5 & 1 & 7 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ 3 &   &   & 2 &   &   & 8 & 5 &   &               & 3 & 7 & 1 & 2 & 6 & 4 & 8 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+   &   &   &   &   & 7 & 6 &   &   &               & 8 & 5 & 2 & 9 & 1 & 7 & 6 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+ 9 &   &   &   & 3 &   &   & 2 &   &               & 9 & 6 & 4 & 5 & 3 & 8 & 1 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\newpage
+
+\small\emph{\textbf{Austin::}}\\ \textbf{Nodes Visited:} 11,458 \textbf{Time:} 0.696 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   & & 1 & 4 & 3 & 2 & 6 & 7 & 5 & 9 & 8 \\\cmidrule{1-9} \cmidrule{11-19} 
+  & 2 &   &   & 5 &   &   &   &   & & 7 & 2 & 8 & 1 & 5 & 9 & 3 & 4 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 &   &   &   &   &   &   & & 5 & 9 & 6 & 3 & 4 & 8 & 1 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+2 &   &   &   &   &   &   &   &   & & 2 & 1 & 4 & 9 & 3 & 6 & 8 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & $\rightarrow$  & &  3 & 5 & 9 & 7 & 8 & 2 & 6 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 4 &   &   &   &   &   & & 6 & 8 & 7 & 4 & 1 & 5 & 9 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 3 &   &   &   & & 8 & 7 & 1 & 6 & 2 & 3 & 4 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   & 7 & 8 &   & & 4 & 6 & 2 & 5 & 9 & 1 & 7 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+9 & 3 &   &   &   &   &   &   & 1 & & 9 & 3 & 5 & 8 & 7 & 4 & 2 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\\
+
+\small\emph{\textbf{Mitchell::}}\\ \textbf{Nodes Visited:} 2,306 \textbf{Time:} 0.118 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+1 &   &   &   &   & 9 &   & 3 &   &  & 1 & 8 & 5 & 7 & 2 & 9 & 6 & 3 & 4\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 & 8 &   &   &   &   & 9 &  & 6 & 7 & 4 & 8 & 3 & 1 & 5 & 2 & 9\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+2 &   &   &   & 4 &   & 1 &   &   &  & 2 & 9 & 3 & 6 & 4 & 5 & 1 & 8 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 8 & 4 &   & 9 & 3 &  & 5 & 6 & 1 & 2 & 8 & 4 & 7 & 9 & 3\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 2 & 7 &   &   &   & 4 & 6 &   &  & 8 & 2 & 7 & 1 & 9 & 3 & 4 & 6 & 5\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+3 & 4 &   & 5 & 7 &   &   &   &   &  & 3 & 4 & 9 & 5 & 7 & 6 & 2 & 1 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 &   & 1 &   &   &   & 2 &  & 4 & 3 & 6 & 9 & 1 & 7 & 8 & 5 & 2\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   & 8 & 9 &   &   &  & 7 & 5 & 2 & 3 & 6 & 8 & 9 & 4 & 1\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   & 4 &   &   &   &   & 6 &  & 9 & 1 & 8 & 4 & 5 & 2 & 3 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\newpage
+
+\small\emph{\textbf{Dylan::}}\\ \textbf{Nodes Visited:} 27,581 \textbf{Time:} 1.750 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 7 &   & 5 &   & 1 &   &   &   &  & 6 & 7 & 4 & 5 & 3 & 1 & 2 & 9 & 8\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+9 &   & 5 &   &   & 6 &   &   & 4 &  & 9 & 2 & 5 & 7 & 8 & 6 & 1 & 3 & 4\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & 6 &  & 1 & 8 & 3 & 4 & 9 & 2 & 5 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 3 & 8 &   & 2 &   & 7 & 6 &   &  & 4 & 3 & 8 & 9 & 2 & 5 & 7 & 6 & 1\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 3 &   &   &   &   &   & $\rightarrow$  & 5 & 1 & 6 & 3 & 7 & 8 & 4 & 2 & 9\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 9 & 7 &   &   &   & 8 & 5 &   &  & 2 & 9 & 7 & 1 & 6 & 4 & 8 & 5 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   &   &   &  & 8 & 5 & 9 & 2 & 1 & 3 & 6 & 4 & 7\\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+3 &   &   & 6 &   &   & 9 &   & 2 &  & 3 & 4 & 1 & 6 & 5 & 7 & 9 & 8 & 2 \\\morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 8 &   & 9 &   & 1 &   &  & 7 & 6 & 2 & 8 & 4 & 9 & 3 & 1 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\\
+
+\small\emph{\textbf{AlsoTim::}}\\ \textbf{Nodes Visited:} 1,893,654 \textbf{Time:} 99.593 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 3 & 7 & 6 &   &   &  & 9 & 5 & 4 & 1 & 3 & 7 & 6 & 8 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 6 &   &   &   & 9 &   &  & 2 & 7 & 3 & 6 & 8 & 4 & 1 & 9 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 &   &   &   &   &   & 4 &  & 1 & 6 & 8 & 2 & 9 & 5 & 7 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   &   &   & 1 &  & 4 & 9 & 5 & 7 & 2 & 8 & 3 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+6 &   &   &   &   &   &   &   & 9 & $\rightarrow$ & 6 & 8 & 1 & 4 & 5 & 3 & 2 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   &   &   &   &   &   & 4 &   &  & 3 & 2 & 7 & 9 & 6 & 1 & 5 & 4 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   & 8 &   &   &  & 7 & 4 & 9 & 3 & 1 & 2 & 8 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   &   &   & 9 &   &   &   &  & 5 & 1 & 6 & 8 & 7 & 9 & 4 & 2 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 2 & 5 & 4 &   &   &   &   &  & 8 & 3 & 2 & 5 & 4 & 6 & 9 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\newpage
+
+\small\emph{\textbf{Michael::}}\\ \textbf{Nodes Visited:} 484 \textbf{Time:} 0.040 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 & 4 & 8 & 1 & 3 &   &   &  & 9 & 5 & 6 & 4 & 8 & 1 & 3 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 &   &   &   &   &   & 4 &   &  & 1 & 2 & 3 & 6 & 7 & 9 & 5 & 4 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   &   &   & 9 &  & 7 & 4 & 8 & 2 & 5 & 3 & 6 & 1 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   & 9 &   &   &   & 4 &  & 8 & 3 & 2 & 1 & 9 & 5 & 7 & 6 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+6 &   &   & 3 & 4 & 2 &   &   & 1 & $\rightarrow$ & 6 & 7 & 9 & 3 & 4 & 2 & 8 & 5 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+5 &   &   &   & 6 &   &   &   & 2 &  & 5 & 1 & 4 & 8 & 6 & 7 & 9 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+3 &   &   &   &   &   &   &   & 5 &  & 3 & 6 & 7 & 9 & 2 & 4 & 1 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   &   & 7 &   &  & 2 & 9 & 1 & 5 & 3 & 8 & 4 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 5 & 7 & 1 & 6 & 2 &   &   &  & 4 & 8 & 5 & 7 & 1 & 6 & 2 & 9 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\\
+
+\small\emph{\textbf{Graeme::}}\\ \textbf{Nodes Visited:} 7108 \textbf{Time:} 0.393 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 7 & 5 &   &   &  & 1 & 4 & 9 & 2 & 3 & 7 & 5 & 8 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+7 &   &   & 1 &   &   &   & 4 &   &  & 7 & 6 & 2 & 1 & 5 & 8 & 9 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+5 &   &   &   &   &   & 2 &   &   &  & 5 & 8 & 3 & 9 & 6 & 4 & 2 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 & 3 & 9 &   &   &   & 8 &  & 4 & 7 & 1 & 3 & 9 & 2 & 6 & 5 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   &   & 7 & 8 & 6 &   & $\rightarrow$  & 4 &  & 3 & 2 & 5 & 7 & 8 & 6 & 1 & 9 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   & 4 & 1 & 7 &   &   &  & 8 & 9 & 6 & 5 & 4 & 1 & 7 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 &   &   &   &   &   & 9 &  & 6 & 1 & 8 & 4 & 7 & 5 & 3 & 2 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   & 3 &   &   & 1 &  & 9 & 5 & 7 & 8 & 2 & 3 & 4 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 & 6 &   &   &   &   &   &  & 2 & 3 & 4 & 6 & 1 & 9 & 8 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+ \end{tabular}
+\newpage
+
+\small\emph{\textbf{Ryley::}}\\ \textbf{Nodes Visited:} 119,742 \textbf{Time:} 6.948 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   &   &   &  & 8 & 1 & 2 & 7 & 5 & 3 & 6 & 4 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 3 & 6 &   &   &   &   &   &  & 9 & 4 & 3 & 6 & 8 & 2 & 1 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  & 7 &   &   & 9 &   & 2 &   &   &  & 6 & 7 & 5 & 4 & 9 & 1 & 2 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   & 7 &   &   &   &  & 1 & 5 & 4 & 2 & 3 & 7 & 8 & 9 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 4 & 5 & 7 &   &   & $\rightarrow$ & 3 & 6 & 9 & 8 & 4 & 5 & 7 & 2 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 1 &   &   &   & 3 &   &  & 2 & 8 & 7 & 1 & 6 & 9 & 5 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 &   &   &   &   & 6 & 8 &  & 5 & 2 & 1 & 9 & 7 & 4 & 3 & 6 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 & 5 &   &   &   & 1 &   &  & 4 & 3 & 8 & 5 & 2 & 6 & 9 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   & 4 &   &   &  & 7 & 9 & 6 & 3 & 1 & 8 & 4 & 5 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\\
+
+\small\emph{\textbf{AlsoRyley::}}\\ \textbf{Nodes Visited:} 391 \textbf{Time:} 0.040 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 4 & 5 & 6 & 7 & 8 & 9 & 1 & 2 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 7 & 8 & 9 & 1 & 2 & 3 & 4 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 2 & 1 & 4 & 3 & 6 & 5 & 8 & 9 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 3 & 6 & 5 & 8 & 9 & 7 & 2 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 8 & 9 & 7 & 2 & 1 & 4 & 3 & 6 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 5 & 3 & 1 & 6 & 4 & 2 & 9 & 7 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 6 & 4 & 2 & 9 & 7 & 8 & 5 & 3 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 9 & 7 & 8 & 5 & 3 & 1 & 6 & 4 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+
+\newpage
+\small\emph{\textbf{Me::}}\\ \textbf{Nodes Visited:} 1,849 \textbf{Time:} 0.125 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 &   &   &   &   &   & 2 &  & 3 & 4 & 1 & 5 & 6 & 7 & 8 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 9 &   &   &   &   &   &  & 2 & 6 & 7 & 9 & 1 & 8 & 4 & 5 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   &   &   &   &   &  & 9 & 5 & 8 & 2 & 4 & 3 & 1 & 6 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   & 3 &   &   &  & 7 & 1 & 2 & 6 & 5 & 9 & 3 & 8 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   & $\rightarrow$  & 6 &  & 4 & 3 & 9 & 1 & 8 & 2 & 5 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 4 &   &   &   &  & 6 & 8 & 5 & 7 & 3 & 4 & 2 & 1 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 &   &   &   &   & 2 &   &  & 1 & 7 & 4 & 3 & 9 & 5 & 6 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 7 &   &   &   &   &  & 5 & 2 & 3 & 8 & 7 & 6 & 9 & 4 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   & 3 & 5 &  & 8 & 9 & 6 & 4 & 2 & 1 & 7 & 3 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\\
+
+\section*{Forward Checking\\
+\small{Complexity :: O($n^{n^2}$)}}
+\small\emph{\textbf{Anonymous::}}\\ \textbf{Nodes Visited:} 1,849 \textbf{Time:} 0.125 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+1 &   &   &   & 3 & 6 &   &   &   &  & 1 & 7 & 4 & 5 & 3 & 6 & 2 & 9 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 5 & 4 &   & 2 & 7 &   & 3 &  & 8 & 6 & 5 & 4 & 9 & 2 & 7 & 1 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 &   &   & 1 & 7 &   &   &   &  & 9 & 2 & 3 & 8 & 1 & 7 & 4 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   & 2 &   &   &   & 3 & 8 &   &  & 7 & 4 & 2 & 9 & 6 & 1 & 3 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & $\rightarrow$  &  & 6 & 3 & 9 & 7 & 5 & 8 & 1 & 4 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 & 8 &   &   &   & 6 &   & 9 &  & 5 & 1 & 8 & 2 & 4 & 3 & 6 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 6 & 8 &   &   & 2 &   &  & 3 & 5 & 1 & 6 & 8 & 4 & 9 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+4 &   & 7 & 3 &   & 5 & 8 &   &   &  & 4 & 9 & 7 & 3 & 2 & 5 & 8 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 1 & 7 &   &   &   & 4 &  & 2 & 8 & 6 & 1 & 7 & 9 & 5 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+ \end{tabular}
+\newpage
+\small\emph{\textbf{Omega::}}\\ \textbf{Nodes Visited:} 87 \textbf{Time:} 0.00254 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 &   & 1 &   & 5 &   &   &  & 6 & 7 & 4 & 3 & 1 & 8 & 5 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 & 8 &   &   & 4 &   &   &   &  & 9 & 2 & 8 & 7 & 5 & 4 & 6 & 1 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   &   & 2 &   &   &   & 7 &  & 5 & 1 & 3 & 9 & 2 & 6 & 4 & 8 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   & 2 &   &   &  & 1 & 3 & 6 & 8 & 4 & 7 & 2 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+7 & 4 &   &   &   &   &   & 3 & 6 & $\rightarrow$ & 7 & 4 & 5 & 1 & 9 & 2 & 8 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 2 &   &   &   &   &   &   &  & 8 & 9 & 2 & 6 & 3 & 5 & 7 & 4 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+4 & 8 &   &   & 7 & 3 &   & 6 &   &  & 4 & 8 & 1 & 2 & 7 & 3 & 9 & 6 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 4 &   &   & 1 & 2 &   &  & 3 & 5 & 7 & 4 & 6 & 9 & 1 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 9 &   & 8 &   & 3 &   &   &  &  2 & 6 & 9 & 5 & 8 & 1 & 3 & 7 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\\
+\small\emph{\textbf{Tim::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.00182 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 8 & 2 &   &   & 1 &  & 7 & 9 & 5 & 4 & 8 & 2 & 3 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   & 6 &   &   &   &   & 5 & 4 &  & 3 & 8 & 6 & 9 & 7 & 1 & 2 & 5 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   &   & 6 &   & 8 &   &   &  & 4 & 1 & 2 & 3 & 6 & 5 & 8 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+2 &   &   & 8 &   &   & 4 &   & 6 &  & 2 & 5 & 7 & 8 & 1 & 9 & 4 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 7 & 5 & 6 &   &   &   & $\rightarrow$ & 8 & 3 & 4 & 7 & 5 & 6 & 9 & 1 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+1 &   & 9 &   &   & 3 &   &   & 5 &  & 1 & 6 & 9 & 2 & 4 & 3 & 7 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 3 &   & 2 &   &   & 9 &   &  & 5 & 4 & 3 & 1 & 2 & 8 & 6 & 9 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 7 &   &   &   &   & 5 &   & 8 &  & 9 & 7 & 1 & 6 & 3 & 4 & 5 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+6 &   &   & 5 & 9 &   &   &   &   &  & 6 & 2 & 8 & 5 & 9 & 7 & 1 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+\end{tabular}
+\newpage
+\small\emph{\textbf{Colton::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.00176 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 2 & 6 &   & 5 &   & 7 &   &   &  & 8 & 2 & 6 & 9 & 5 & 3 & 7 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 7 & 4 &   & 6 &   &   & 5 &  & 3 & 1 & 7 & 4 & 8 & 6 & 9 & 2 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+9 &   &   & 2 & 1 &   &   & 6 &   &  & 9 & 4 & 5 & 2 & 1 & 7 & 3 & 6 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   &   & 9 & 1 &  & 7 & 6 & 3 & 8 & 2 & 4 & 5 & 9 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 1 & 7 & 5 &   &   &   & $\rightarrow$ & 2 & 9 & 4 & 1 & 7 & 5 & 8 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+5 & 8 &   &   &   &   &   &   & 2 &  & 5 & 8 & 1 & 6 & 3 & 9 & 4 & 7 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   & 4 & 2 &   &   & 3 &  & 1 & 5 & 9 & 7 & 4 & 2 & 6 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+4 &   &   & 3 &   & 8 & 1 &   &   &  & 4 & 7 & 2 & 3 & 6 & 8 & 1 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 &   & 9 &   & 2 & 4 &   &  & 6 & 3 & 8 & 5 & 9 & 1 & 2 & 4 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+\end{tabular}
+\\
+\small\emph{\textbf{Ayla::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.00182 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 2 & 7 & 1 & 9 & 5 & 4 & 6 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 & 3 & 6 & 2 & 8 & 1 & 4 &   &  & 5 & 9 & 3 & 6 & 2 & 8 & 1 & 4 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 6 &   &   &   &   &   & 5 &   &  & 4 & 6 & 8 & 1 & 3 & 7 & 2 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 3 &   &   & 1 &   &   & 9 &   &  & 7 & 3 & 6 & 4 & 1 & 5 & 8 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   & 8 &   & 2 &   & 7 & $\rightarrow$  &  & 1 & 5 & 9 & 8 & 6 & 2 & 3 & 7 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  & 4 &   &   & 7 &   &   & 6 &   &  & 8 & 4 & 2 & 3 & 7 & 9 & 5 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 8 &   &   &   &   &   & 3 &   &  & 9 & 8 & 5 & 2 & 4 & 1 & 7 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 & 7 & 5 & 9 & 3 & 4 & 2 &   &  & 6 & 1 & 7 & 5 & 9 & 3 & 4 & 2 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 3 & 2 & 4 & 7 & 8 & 6 & 9 & 1 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+\end{tabular}
+\newpage
+\small\emph{\textbf{Reece::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.00221 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 2 &   &   & 4 &   &   &   & 1 &  & 6 & 2 & 7 & 3 & 4 & 5 & 9 & 8 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 & 1 &   &   &   &   &   &  & 4 & 9 & 8 & 1 & 2 & 6 & 3 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  & 3 & 5 &   &   & 9 &   &   & 2 &  & 1 & 3 & 5 & 7 & 8 & 9 & 4 & 6 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 3 &   &   &   &   & 1 &   &  & 7 & 8 & 3 & 6 & 9 & 2 & 5 & 1 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 & 6 & 4 & 7 & 3 & 2 & 9 & $\rightarrow$  &  & 5 & 1 & 6 & 4 & 7 & 3 & 2 & 9 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  & 4 &   &   &   &   & 7 &   &   &  & 2 & 4 & 9 & 8 & 5 & 1 & 7 & 3 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+3 &   &   & 2 &   &   & 8 & 5 &   &  & 3 & 7 & 1 & 2 & 6 & 4 & 8 & 5 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 7 & 6 &   &   &  & 8 & 5 & 2 & 9 & 1 & 7 & 6 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+9 &   &   &   & 3 &   &   & 2 &   &  & 9 & 6 & 4 & 5 & 3 & 8 & 1 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+\end{tabular}
+\\
+\small\emph{\textbf{Austin::}}\\ \textbf{Nodes Visited:} 83 \textbf{Time:} 0.01218 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 4 & 1 & 3 & 6 & 8 & 2 & 9 & 5 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 &   &   & 5 &   &   &   &   &  & 7 & 2 & 9 & 3 & 5 & 4 & 6 & 1 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 &   &   &   &   &   &   &  & 8 & 5 & 6 & 7 & 9 & 1 & 3 & 2 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+2 &   &   &   &   &   &   &   &   &  & 2 & 6 & 4 & 8 & 3 & 7 & 1 & 9 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & $\rightarrow$  &  & 5 & 7 & 8 & 9 & 1 & 6 & 4 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 4 &   &   &   &   &   &  & 3 & 9 & 1 & 4 & 2 & 5 & 8 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 3 &   &   &   &  & 6 & 8 & 5 & 1 & 7 & 3 & 2 & 4 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   & 7 & 8 &   &  & 1 & 4 & 2 & 5 & 6 & 9 & 7 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+9 & 3 &   &   &   &   &   &   & 1 &  & 9 & 3 & 7 & 2 & 4 & 8 & 5 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newpage
+\small\emph{\textbf{Mitchell::}}\\ \textbf{Nodes Visited:} 104 \textbf{Time:} 0.00566 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+1 &   &   &   &   & 9 &   & 3 &   &  & 1 & 8 & 5 & 7 & 2 & 9 & 6 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 & 8 &   &   &   &   & 9 &  & 6 & 7 & 4 & 8 & 3 & 1 & 5 & 2 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+2 &   &   &   & 4 &   & 1 &   &   &  & 2 & 9 & 3 & 6 & 4 & 5 & 1 & 8 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 8 & 4 &   & 9 & 3 &  & 5 & 6 & 1 & 2 & 8 & 4 & 7 & 9 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 & 7 &   &   &   & 4 & 6 &   & $\rightarrow$ & 8 & 2 & 7 & 1 & 9 & 3 & 4 & 6 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+3 & 4 &   & 5 & 7 &   &   &   &   &  & 3 & 4 & 9 & 5 & 7 & 6 & 2 & 1 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 &   & 1 &   &   &   & 2 &  & 4 & 3 & 6 & 9 & 1 & 7 & 8 & 5 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   & 8 & 9 &   &   &  & 7 & 5 & 2 & 3 & 6 & 8 & 9 & 4 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   & 4 &   &   &   &   & 6 &  & 9 & 1 & 8 & 4 & 5 & 2 & 3 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+
+\end{tabular}
+\\
+\small\emph{\textbf{Dylan::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.00329 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 7 &   & 5 &   & 1 &   &   &   &  & 6 & 7 & 4 & 5 & 3 & 1 & 2 & 9 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+9 &   & 5 &   &   & 6 &   &   & 4 &  & 9 & 2 & 5 & 7 & 8 & 6 & 1 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & 6 &  & 1 & 8 & 3 & 4 & 9 & 2 & 5 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 3 & 8 &   & 2 &   & 7 & 6 &   &  & 4 & 3 & 8 & 9 & 2 & 5 & 7 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 3 &   &   &   &   &   & $\rightarrow$ & 5 & 1 & 6 & 3 & 7 & 8 & 4 & 2 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 & 7 &   &   &   & 8 & 5 &   &  & 2 & 9 & 7 & 1 & 6 & 4 & 8 & 5 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   &   &   &  & 8 & 5 & 9 & 2 & 1 & 3 & 6 & 4 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   &   & 6 &   &   & 9 &   & 2 &  & 3 & 4 & 1 & 6 & 5 & 7 & 9 & 8 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 8 &   & 9 &   & 1 &   &  & 7 & 6 & 2 & 8 & 4 & 9 & 3 & 1 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newpage
+\small\emph{\textbf{AlsoTim::}}\\ \textbf{Nodes Visited:} 4744 \textbf{Time:} 0.18007 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 3 & 7 & 6 &   &   &  & 9 & 5 & 4 & 1 & 3 & 7 & 6 & 8 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 6 &   &   &   & 9 &   &  & 2 & 7 & 3 & 6 & 8 & 4 & 1 & 9 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 &   &   &   &   &   & 4 &  & 1 & 6 & 8 & 2 & 9 & 5 & 7 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   &   &   & 1 &  & 4 & 9 & 5 & 7 & 2 & 8 & 3 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+6 &   &   &   &   &   &   &   & 9 & $\rightarrow$ & 6 & 8 & 1 & 4 & 5 & 3 & 2 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   &   &   &   &   &   & 4 &   &  & 3 & 2 & 7 & 9 & 6 & 1 & 5 & 4 & 8\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   & 8 &   &   &  & 7 & 4 & 9 & 3 & 1 & 2 & 8 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  & 1 &   &   &   & 9 &   &   &   &  & 5 & 1 & 6 & 8 & 7 & 9 & 4 & 2 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 2 & 5 & 4 &   &   &   &   &  & 8 & 3 & 2 & 5 & 4 & 6 & 9 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\\
+\small\emph{\textbf{Michael::}}\\ \textbf{Nodes Visited:} 87 \textbf{Time:} 0.00433 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 6 & 4 & 8 & 1 & 3 &   &   &  & 9 & 5 & 6 & 4 & 8 & 1 & 3 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 2 &   &   &   &   &   & 4 &   &  & 1 & 2 & 3 & 6 & 7 & 9 & 5 & 4 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   &   &   & 9 &  & 7 & 4 & 8 & 2 & 5 & 3 & 6 & 1 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   & 9 &   &   &   & 4 &  & 8 & 3 & 2 & 1 & 9 & 5 & 7 & 6 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+6 &   &   & 3 & 4 & 2 &   &   & 1 & $\rightarrow$ & 6 & 7 & 9 & 3 & 4 & 2 & 8 & 5 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+5 &   &   &   & 6 &   &   &   & 2 &  & 5 & 1 & 4 & 8 & 6 & 7 & 9 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+3 &   &   &   &   &   &   &   & 5 &  & 3 & 6 & 7 & 9 & 2 & 4 & 1 & 8 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   &   & 7 &   &  & 2 & 9 & 1 & 5 & 3 & 8 & 4 & 7 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 5 & 7 & 1 & 6 & 2 &   &   &  & 4 & 8 & 5 & 7 & 1 & 6 & 2 & 9 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newpage
+\small\emph{\textbf{Graeme::}}\\ \textbf{Nodes Visited:} 451 \textbf{Time:} 0.02131 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 7 & 5 &   &   &  & 1 & 4 & 9 & 2 & 3 & 7 & 5 & 8 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+7 &   &   & 1 &   &   &   & 4 &   &  & 7 & 6 & 2 & 1 & 5 & 8 & 9 & 4 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+5 &   &   &   &   &   & 2 &   &   &  & 5 & 8 & 3 & 9 & 6 & 4 & 2 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 & 3 & 9 &   &   &   & 8 &  & 4 & 7 & 1 & 3 & 9 & 2 & 6 & 5 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+3 &   &   & 7 & 8 & 6 &   &   & 4 & $\rightarrow$ & 3 & 2 & 5 & 7 & 8 & 6 & 1 & 9 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   & 4 & 1 & 7 &   &   &  & 8 & 9 & 6 & 5 & 4 & 1 & 7 & 3 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 &   &   &   &   &   & 9 &  & 6 & 1 & 8 & 4 & 7 & 5 & 3 & 2 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   & 3 &   &   & 1 &  & 9 & 5 & 7 & 8 & 2 & 3 & 4 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 & 6 &   &   &   &   &   &  & 2 & 3 & 4 & 6 & 1 & 9 & 8 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\\
+\small\emph{\textbf{Ryley::}}\\ \textbf{Nodes Visited:} 6859 \textbf{Time:} 0.26505 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   &   &   &  & 8 & 1 & 2 & 7 & 5 & 3 & 6 & 4 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 3 & 6 &   &   &   &   &   &  & 9 & 4 & 3 & 6 & 8 & 2 & 1 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19}
+  & 7 &   &   & 9 &   & 2 &   &   &  & 6 & 7 & 5 & 4 & 9 & 1 & 2 & 8 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   & 7 &   &   &   &  & 1 & 5 & 4 & 2 & 3 & 7 & 8 & 9 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 4 & 5 & 7 &   &   & $\rightarrow$ & 3 & 6 & 9 & 8 & 4 & 5 & 7 & 2 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 1 &   &   &   & 3 &   &  & 2 & 8 & 7 & 1 & 6 & 9 & 5 & 3 & 4\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 &   &   &   &   & 6 & 8 &  & 5 & 2 & 1 & 9 & 7 & 4 & 3 & 6 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   & 8 & 5 &   &   &   & 1 &   &  & 4 & 3 & 8 & 5 & 2 & 6 & 9 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  & 9 &   &   &   &   & 4 &   &   &  & 7 & 9 & 6 & 3 & 1 & 8 & 4 & 5 & 2\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\newpage
+\small\emph{\textbf{AlsoRyley::}}\\ \textbf{Nodes Visited:} 81 \textbf{Time:} 0.01323 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 4 & 5 & 6 & 7 & 8 & 9 & 1 & 2 & 3\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 7 & 8 & 9 & 1 & 2 & 3 & 4 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 2 & 3 & 1 & 8 & 7 & 5 & 6 & 9 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   & $\rightarrow$ & 6 & 7 & 4 & 9 & 1 & 2 & 5 & 3 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 8 & 9 & 5 & 3 & 6 & 4 & 2 & 1 & 7\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 3 & 4 & 2 & 5 & 9 & 7 & 8 & 6 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 5 & 1 & 7 & 6 & 3 & 8 & 9 & 4 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   &   &  & 9 & 6 & 8 & 2 & 4 & 1 & 3 & 7 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+\\
+\small\emph{\textbf{Me::}}\\ \textbf{Nodes Visited:} 93 \textbf{Time:} 0.01308 seconds\\
+\begin{tabular}{||c|c|c||c|c|c||c|c|c|| c ||c|c|c||c|c|c||c|c|c||}
+  \cmidrule{1-9} \cmidrule{11-19}
+  \multicolumn{9}{|c|}{Problem} &                   & \multicolumn{9}{|c|}{Solution}   \\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 1 &   &   &   &   &   & 2 &  & 3 & 8 & 1 & 5 & 4 & 6 & 7 & 9 & 2\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   & 9 &   &   &   &   &   &  & 2 & 7 & 6 & 9 & 1 & 3 & 5 & 8 & 4\\\cmidrule{1-9} \cmidrule{11-19}
+  & 5 &   &   &   &   &   &   &   &  & 4 & 5 & 9 & 7 & 2 & 8 & 1 & 6 & 3\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+7 &   &   &   &   &   & 3 &   &   &  & 7 & 9 & 2 & 6 & 8 & 5 & 3 & 4 & 1\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   &   &   &   & 6 & $\rightarrow$ & 1 & 4 & 3 & 2 & 9 & 7 & 8 & 5 & 6\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   &   & 4 &   &   &   &  & 5 & 6 & 8 & 1 & 3 & 4 & 2 & 7 & 9\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+  &   & 4 &   &   &   &   & 2 &   &  & 9 & 3 & 4 & 8 & 5 & 1 & 6 & 2 & 7\\\cmidrule{1-9} \cmidrule{11-19}
+  &   &   &   & 7 &   &   &   &   &  & 6 & 2 & 5 & 3 & 7 & 9 & 4 & 1 & 8\\\cmidrule{1-9} \cmidrule{11-19}
+8 &   &   &   &   &   &   & 3 & 5 &  & 8 & 1 & 7 & 4 & 6 & 2 & 9 & 3 & 5\\\cmidrule{1-9} \cmidrule{11-19} \morecmidrules \cmidrule{1-9} \cmidrule{11-19}
+\end{tabular}
+
+ \end{document}

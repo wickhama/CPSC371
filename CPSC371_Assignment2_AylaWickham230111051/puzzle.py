@@ -6,13 +6,11 @@
 
 import sys
 import forward
+import backtracking
 
 args = sys.argv
-filename = args[1]
+filename = args[2]
+method = args[1]
 
-#get first puzzle
-
-frwrd = forward.Forward(filename)
-frwrd.printDic()
-print(frwrd.tAffected)
-# frwrd.printOutput()
+if "Forward" == method: forward.Forward(filename)
+else: backtracking.Backtracking(filename)
